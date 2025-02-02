@@ -1,0 +1,680 @@
+/* ==========================================================================
+   Global Reset & Base Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   Preloader / Spinner
+   ========================================================================== */
+.spinner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #262626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+  z-index: 300;
+}
+
+.display .spinner-container {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.circles {
+  width: 8rem;
+  height: 8rem;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  animation: displayCircles 4s;
+}
+
+@keyframes displayCircles {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  25% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.circles div {
+  animation: circles 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 4rem 4rem;
+}
+
+.circles div::after {
+  content: "";
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: #c29525;
+  margin: -0.4rem 0 0 -0.4rem;
+}
+
+@keyframes circles {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Container Visibility (After Preloader)
+   ========================================================================== */
+.container {
+  display: none;
+}
+
+.display .container {
+  display: block;
+}
+
+/* ==========================================================================
+   Hamburger Menu & Sidebar
+   ========================================================================== */
+.hamburger-menu {
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition: right 0.7s;
+}
+
+.change .hamburger-menu {
+  right: 33rem;
+}
+
+.line {
+  width: 100%;
+  height: 0.2rem;
+  background-color: #ad2929;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.change .line {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.change .line-1 {
+  transform: rotate(45deg) translate(0.3rem, 0.8rem);
+}
+
+.change .line-2 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change .line-3 {
+  transform: rotate(-45deg) translate(0.3rem, -0.8rem);
+}
+
+.hamburger-menu span {
+  position: absolute;
+  left: 5rem;
+  width: 10rem;
+  height: 4rem;
+  background-color: #e2b646;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ad2929;
+  font-family: "Baloo Da 2", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+
+.change .hamburger-menu:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hamburger-menu span::before {
+  content: "";
+  position: absolute;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid #e2b646;
+  border-bottom: 1rem solid transparent;
+  border-top: 1rem solid transparent;
+  top: 50%;
+  left: -2rem;
+  transform: translateY(-50%);
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  width: 40rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -40rem;
+  background-color: #ffffff;
+  transition: right 0.5s;
+  z-index: 100;
+}
+
+.change .sidebar {
+  right: 0;
+}
+
+.menu {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-link {
+  font-family: "Baloo Da 2", serif;
+  font-size: 4rem;
+  color: #555;
+  position: relative;
+}
+
+.menu-link::before {
+  content: attr(data-content);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #c29525;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease-in-out;
+}
+
+.menu-link:hover::before {
+  width: 100%;
+}
+
+.social-media {
+  position: absolute;
+  bottom: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.social-media i {
+  font-size: 2.2rem;
+  margin: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #777;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.social-media i:hover {
+  background-color: #c29525;
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  perspective: 100rem;
+  overflow: hidden;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  animation: scale 25s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.banner {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+}
+
+.banner h1 {
+  font-family: "Baloo Da 2", serif;
+  font-size: 8rem;
+  font-weight: 300;
+  color: #ffffff;
+  width: 50%;
+  line-height: 9rem;
+  letter-spacing: 0.2rem;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: moveBanner 1s 0.5s forwards;
+}
+
+.banner p {
+  font-family: "Josefin Slab", serif;
+  font-size: 4rem;
+  color: #ffffff;
+  width: 70%;
+  letter-spacing: 0.1rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: moveBanner 1s 0.7s forwards;
+}
+
+.banner button {
+  width: 25rem;
+  height: 7rem;
+  background-color: #c29525;
+  border: none;
+  font-family: "Muli", serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  opacity: 0;
+  animation: moveBanner 1s 0.9s forwards;
+}
+
+@keyframes moveBanner {
+  0% {
+    transform: translateY(40rem) rotateY(-20deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   About Us & Service Cards Section
+   ========================================================================== */
+.about-us {
+  width: 100%;
+  background-color: #ffffff;
+  padding-bottom: 15rem;
+}
+
+/* Service Container (for About Us cards, etc.) */
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-card {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff, #f8f8f8);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.service-card .icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(0, 150, 255, 0.1);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.service-card:hover::before {
+  transform: translate(50%, 50%);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Team Section & Cards
+   ========================================================================== */
+.team {
+  padding: 50px 0;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7rem 0 10rem 0;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-family: "Muli", sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #4b4b4b;
+  display: flex;
+  align-items: center;
+}
+
+.section-heading .dots {
+  display: inline-block;
+}
+
+.section-heading .dots span {
+  font-size: 3rem;
+  font-weight: bold;
+  display: inline-block;
+  animation: blink-dot 1.5s infinite;
+}
+
+@keyframes blink-dot {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.section-heading .dot1 { animation-delay: 3s; }
+.section-heading .dot2 { animation-delay: 2.5s; }
+.section-heading .dot3 { animation-delay: 0s; }
+
+@keyframes underline-grow {
+  0% { width: 0; }
+  100% { width: 16rem; }
+}
+
+.underline {
+  width: 12rem;
+  height: 0.3rem;
+  background-color: #c29525;
+  margin: 0 auto;
+  animation: underline-grow 1s ease-out forwards;
+}
+
+/* Cards Wrapper & Cards */
+.cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  background: #fff;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card-info {
+  margin-top: 15px;
+}
+
+.card-info h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.card-info p {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.card-info button {
+  padding: 8px 20px;
+  background: #c29525;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   About Us Image Section
+   ========================================================================== */
+.about-us-img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.about-us-img-wrapper img {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  border-radius: 5px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+.contact {
+  margin-top: 50px;
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.contact-right {
+  max-width: 500px;
+  width: 100%;
+}
+
+.contact-heading {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  color: #222;
+  font-weight: 600;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.field:focus {
+  border-color: #a07c1a;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #a07c1a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #8a6f17;
+}
+/* ==========================================================================
+   Footer Section
+   ========================================================================== */
+.footer {
+  background: #333;
+  color: white;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.social-list a {
+  color: white;
+  margin-left: 15px;
+  font-size: 2rem;
+  transition: color 0.3s;
+}
+
+.social-list a:hover {
+  color: #c29525;
+}
+
+/* ==========================================================================
+   Scroll to Top Button
+   ========================================================================== */
+.scroll-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #c29525;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 3.5rem;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .contact-heading {
+    font-size: 2.5rem;
+  }
+}
