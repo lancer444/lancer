@@ -1,28 +1,43 @@
-window.onload = () => {
-  setTimeout(() => {
-    document.querySelector("body").classList.add("display");
-  }, 500);
-};
+document.addEventListener("DOMContentLoaded", function () {
+    // Preloader
+    setTimeout(() => {
+        document.querySelector(".preloader").style.display = "none";
+    }, 1000);
 
-document.querySelector(".hamburger-menu").addEventListener("click", () => {
-  document.querySelector(".container").classList.toggle("change");
-});
+    // Hamburger Menu Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
 
-document.querySelector(".scroll-btn").addEventListener("click", () => {
-  document.querySelector("html").style.scrollBehavior = "smooth";
-  setTimeout(() => {
-    document.querySelector("html").style.scrollBehavior = "unset";
-  }, 1000);
-});
+    menuToggle.addEventListener("click", function () {
+        if (sidebar.style.right === "0px") {
+            sidebar.style.right = "-250px";
+        } else {
+            sidebar.style.right = "0px";
+        }
+    });
 
-document.getElementById("btnExplore1").addEventListener("click", function() {
-    window.location.href = "vfx_sfx_video_fonts.html";
-});
+    // Smooth Scrolling
+    document.querySelectorAll("a[href^='#']").forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
 
-document.getElementById("btnExplore2").addEventListener("click", function() {
-    window.location.href = "fonts_video_templates.html";
-});
+    // Tilt Effect
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5
+    });
 
-document.getElementById("btnExplore3").addEventListener("click", function() {
-    window.location.href = "modified_apps.html";
+    // Contact Form Submission
+    document.querySelector(".contact form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("Thank you for reaching out! We will get back to you soon.");
+        this.reset();
+    });
 });
