@@ -1,235 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-adsense-account" content="ca-pub-3931693641503643">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3931693641503643"
-     crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Lancer_Fx - High-quality Visual Editing Products">
     <title>Lancer_Fx</title>
-    <!-- favicon -->
-    <link rel="shortcut icon" href="images/llogo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/llogo.png" type="image/x-icon">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Josefin+Slab:ital,wght@0,400;0,600;1,300;1,400;1,600&family=Muli:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Josefin+Slab:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
     <!-- Preloader -->
-    <div class="spinner-container">
-      <div class="circles">
-        <div></div><div></div><div></div><div></div>
-        <div></div><div></div><div></div><div></div>
-      </div>
-      <a href="#" class="logo">
-        <img src="images/logo.gif" alt="Logo" />
-      </a>
+    <div class="preloader">
+        <div class="spinner"></div>
     </div>
-
-    <div class="container">
-      <!-- Hamburger Menu -->
-      <div class="hamburger-menu">
-        <div class="line line-1"></div>
-        <div class="line line-2"></div>
-        <div class="line line-3"></div>
-        <span>Close</span>
-      </div>
-
-      <!-- Header -->
-      <header class="header" id="home">
-        <div class="img-wrapper">
-          <img src="images/Untitled design (1) (1).png" alt="Header Image" />
-        </div>
-        <div class="banner">
-          <h1>Lancer_Fx</h1>
-          <p>
-            "Lancer is an online platform that specializes in selling a wide range
-            of high-quality Visual Editing products at competitive prices."
-          </p>
-          <button id="scrollDiscover">Scroll to Discover</button>
-        </div>
-      </header>
-
-      <!-- Sidebar Navigation -->
-      <nav class="sidebar">
-        <ul class="menu">
-          <li class="menu-item">
-            <a href="#home" class="menu-link" data-content="Home">Home</a>
-          </li>
-          <li class="menu-item">
-            <a href="#about-us" class="menu-link" data-content="About Us">About Us</a>
-          </li>
-          <li class="menu-item">
-            <a href="#team" class="menu-link" data-content="Our Products">Our Products</a>
-          </li>
-          <li class="menu-item">
-            <a href="#contact" class="menu-link" data-content="Contact">Contact</a>
-          </li>
+    
+    <!-- Header Section -->
+    <header class="header" id="home">
+        <div class="logo"><img src="images/logo.gif" alt="Lancer_Fx"></div>
+        <button class="hamburger" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Our Products</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="social-media">
-          <a href="https://www.instagram.com/lancer__fx" target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="https://www.linkedin.com" target="_blank"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a href="https://www.twitter.com" target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
-        </div>
-      </nav>
-
-      <!-- Section: Product Cards (Team) -->
-      <section class="team" id="team">
-        <div class="section-header">
-          <h2 class="section-heading">
-            Our Products
-            <span class="dots">
-              <span class="dot1">.</span>
-              <span class="dot2">.</span>
-              <span class="dot3">.</span>
-            </span>
-          </h2>
-          <div class="underline"></div>
-        </div>
-        <div class="cards-wrapper">
-          <!-- Card 1 -->
-          <div class="card" data-tilt>
-            <div class="card-img-wrapper">
-              <img src="images/2.png" alt="VFX/SFX" />
+    </nav>
+    
+    <!-- Main Content -->
+    <section class="hero">
+        <h1>Lancer_Fx</h1>
+        <p>Discover high-quality Visual Editing products at the best prices.</p>
+        <button id="scrollDiscover">Scroll Down</button>
+    </section>
+    
+    <!-- Product Section -->
+    <section class="products" id="products">
+        <h2>Our Products</h2>
+        <div class="product-container">
+            <div class="product" data-tilt>
+                <img src="images/2.png" alt="VFX/SFX">
+                <h3>VFX/SFX</h3>
+                <button onclick="location.href='vfx_sfx_video_fonts.html'">Explore</button>
             </div>
-            <div class="card-info">
-              <h2>VFX/SFX</h2>
-              <p>Explore our stunning visual and special effects.</p>
-              <button id="btnExplore1">Explore</button>
+            <div class="product" data-tilt>
+                <img src="images/images.png" alt="Fonts/Templates">
+                <h3>Fonts & Templates</h3>
+                <button onclick="location.href='fonts_video_templates.html'">Explore</button>
             </div>
-          </div>
-          <!-- Card 2 -->
-          <div class="card" data-tilt>
-            <div class="card-img-wrapper">
-              <img src="images/images.png" alt="Video Templates / Fonts" />
+            <div class="product" data-tilt>
+                <img src="images/images (1).png" alt="Modified Apps">
+                <h3>Modified Apps</h3>
+                <button onclick="location.href='modified_apps.html'">Explore</button>
             </div>
-            <div class="card-info">
-              <h2>VIDEO TEMPLATES / FONTS</h2>
-              <p>We provide a wide range of fonts and video templates for your projects.</p>
-              <button id="btnExplore2">Explore</button>
-            </div>
-          </div>
-          <!-- Card 3 -->
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3931693641503643"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="+2w+qp-31-7v+r6"
-     data-ad-client="ca-pub-3931693641503643"
-     data-ad-slot="7757341170"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-          <div class="card" data-tilt>
-            <div class="card-img-wrapper">
-              <img src="images/images (1).png" alt="Modified Apps" />
-            </div>
-            <div class="card-info">
-              <h2>MOD APPS</h2>
-              <p>Discover the best and most secure modified apps.</p>
-              <button id="btnExplore3">Explore</button>
-            </div>
-          </div>
         </div>
-      </section>
-
-      <!-- Section: About Us Image -->
-      <section class="about-us" id="about-us">
-        <div class="about-us-img-wrapper">
-          <img src="images/homecctv-removebg-preview (1).gif" alt="About Us Image" />
-        </div>
-      </section>
-
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3931693641503643"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="autorelaxed"
-     data-ad-client="ca-pub-3931693641503643"
-     data-ad-slot="1003999055"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-      
-      <!-- Section: Contact -->
-      <section class="contact" id="contact">
-        <div class="contact-wrapper">
-          <div class="contact-right">
-            <h1 class="contact-heading">Contact</h1>
-            <form>
-              <div class="input-group">
-                <input type="text" class="field" placeholder="Full Name" />
-                <label class="input-label">Full Name</label>
-              </div>
-              <div class="input-group">
-                <input type="email" class="field" placeholder="Email" />
-                <label class="input-label">Email</label>
-              </div>
-              <div class="input-group">
-                <textarea class="field" placeholder="Message"></textarea>
-                <label class="message">Message</label>
-              </div>
-              <input type="submit" class="submit-btn" value="Submit" />
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-content">
-          <p class="copyright">
-            <a href="https://www.instagram.com/lancer__fx" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            Copyright &copy; 2025, Rasin - All Rights Reserved
-          </p>
-          <div class="social-list">
-            <a href="https://www.instagram.com/lancer__fx" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://api.whatsapp.com/send/?phone=919895766187" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.twitter.com" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
-      </footer>
-
-      <!-- Scroll to Top Button -->
-      <a href="#" class="scroll-btn">
-        <i class="fas fa-arrow-up"></i>
-      </a>
-    </div>
-
-    <!-- JavaScript Files -->
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Lancer_Fx. All Rights Reserved.</p>
+    </footer>
+    
+    <!-- Scripts -->
     <script src="script.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
     <script src="tilt.js"></script>
-
-    <!-- Custom Cursor (if used) -->
-    <div id="cursor">
-      <div class="cursor-circle"></div>
-    </div>
-  </body>
+</body>
 </html>
