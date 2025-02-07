@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuToggle.addEventListener("click", function () {
         if (sidebar.style.right === "0px") {
-            sidebar.style.right = "-250px";
+            sidebar.style.right = "-350px";
         } else {
             sidebar.style.right = "0px";
         }
